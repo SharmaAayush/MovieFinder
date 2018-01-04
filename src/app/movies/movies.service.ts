@@ -7,7 +7,7 @@ export class MoviesService {
   apikey: string;
 
   constructor(private _jsonp: Jsonp) {
-    this.apikey = '2931998c3a80d7806199320f76d65298';
+    this.apikey = YOUR_API_KEY;
     console.log('MoviesService Initialized...');
   }
 
