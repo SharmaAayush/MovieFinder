@@ -1,0 +1,43 @@
+<div *ngIf="movie">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>{{movie.title}}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-5">
+          <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.title}}" class="thumbnail">
+        </div>
+        <div class="col-md-7">
+          <ul class="list-group">
+            <li *ngIf="movie.genres" class="list-group-item">Geners: <span *ngFor="let genre of movie.genres">{{genre.name}}, </span></li>
+            <li *ngIf="movie.release_date" class="list-group-item">Release Data: {{movie.release_date}}</li>
+            <li *ngIf="movie.runtime" class="list-group-item">Runtime: {{movie.runtime}}</li>
+            <li *ngIf="movie.original_language" class="list-group-item">Original Language: {{movie.original_language}}</li>
+            <li *ngIf="movie.production_companies" class="list-group-item">Production Companies: <span *ngFor="let company of movie.production_companies">{{company.name}}, </span></li>
+            <li *ngIf="movie.tagline" class="list-group-item">Tagline: {{movie.tagline}}</li>
+            <li *ngIf="movie.vote_average" class="list-group-item">User Rating: <span (mouseenter)="showVotes()" (mouseleave)="hideVotes()" >{{movie.vote_average}}</span>
+              <span class="my-votes" *ngIf="showvotes">Out of {{movie.vote_count}} votes</span>
+            </li>
+          </ul>
+          <br>
+          <h5>Summary:</h5>
+          <p>{{movie.overview}}</p>
+          <br>
+          <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-default">Visit Movie Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showRecommended" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Recommended Movies</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <app-movies-list [movies]="recommendedMovies"></app-movies-list>
+    </div>
+  </div>
+</div>

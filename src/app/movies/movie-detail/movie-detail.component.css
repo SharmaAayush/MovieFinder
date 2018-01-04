@@ -1,0 +1,9 @@
+img{
+  width: 100%;
+  height: auto;
+}
+.my-votes{
+  border-radius: 3px;
+  background-color: darkslategrey;
+  color: azure;
+}

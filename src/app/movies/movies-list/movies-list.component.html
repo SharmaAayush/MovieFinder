@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div style="float:left;" *ngFor="let movie of movies">
+      <a routerLink='/movie/{{movie.id}}'>
+        <app-movie
+          [movieTitle]="movie.title"
+          [moviePosterPath]="movie.poster_path"
+        ></app-movie>
+      </a>
+    </div>
+  </div>
+  <span style="clear:both;"></span>
+</div>

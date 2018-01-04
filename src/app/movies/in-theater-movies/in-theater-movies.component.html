@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title" style="text-align: center;">Movies In Theater</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <app-movies-list [movies]="movies"></app-movies-list>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2"><button [disabled]="firstPageDisabled" (click)="firstPage()" class="btn btn-primary">First Page</button></div>
+    <div class="col-md-2"><button [disabled]="preiousPageDisabled" (click)="preiousPage()" class="btn btn-primary">Previous Page</button></div>
+    <div class="col-md-4">
+      <form (ngSubmit)="gotoPage(pageNumber.value)">
+        <div class="input-group">
+          <input type="number" class="form-control" min="1" [max]="totalPages" #pageNumber class="form-control">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2"><button [disabled]="nextPageDisabled" (click)="nextPage()" class="btn btn-primary">Next Page</button></div>
+    <div class="col-md-2"><button [disabled]="lastPageDisabled" (click)="LastPage()" class="btn btn-primary">Last Page</button></div>
+  </div>
+  <br>
